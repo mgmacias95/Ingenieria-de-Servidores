@@ -1,0 +1,4 @@
+6c6
+<     cout << "Ola mundo!" << endl;
+---
+>     cout << "Hola mundo!" << endl;

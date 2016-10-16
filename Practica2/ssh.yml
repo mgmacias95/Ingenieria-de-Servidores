@@ -1,0 +1,12 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: Change sshdconf
+      replace: dest=/etc/ssh/sshd_config regexp='{{ exp }}' replace='{{ rep }}' backup=yes
+      remote_user: root
+      notify:
+        - Reload sshd
+  handlers:
+    - name: Reload sshd
+      service: name=sshd state=reloaded
